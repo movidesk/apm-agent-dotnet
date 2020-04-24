@@ -7,7 +7,7 @@ using Elastic.Apm.Helpers;
 using Elastic.Apm.Logging;
 using Elastic.Apm.Model;
 
-namespace Elastic.Apm.EntityFramework6
+namespace Elastic.Apm.Z.EntityFramework6
 {
 	/// <summary>
 	/// An interceptor that automatically creates spans for DB operations executed by Entity Framework 6 (EF6) on behalf of the
@@ -18,9 +18,9 @@ namespace Elastic.Apm.EntityFramework6
 	/// on how to set up auto instrumentation for Entity Framework 6
 	/// </see>
 	/// </summary>
-	public class Ef6Interceptor : IDbCommandInterceptor
+	public class ZEf6Interceptor : IDbCommandInterceptor
 	{
-		private const string ThisClassName = nameof(Ef6Interceptor);
+		private const string ThisClassName = nameof(ZEf6Interceptor);
 
 		private readonly Lazy<Impl> _impl = new Lazy<Impl>(() => new Impl());
 
@@ -64,7 +64,7 @@ namespace Elastic.Apm.EntityFramework6
 		private class Impl
 		{
 			// ReSharper disable once MemberHidesStaticFromOuterClass
-			private const string ThisClassName = Ef6Interceptor.ThisClassName + "." + nameof(Impl);
+			private const string ThisClassName = ZEf6Interceptor.ThisClassName + "." + nameof(Impl);
 
 			private readonly IApmLogger _logger;
 			private readonly string _userStateKey;
